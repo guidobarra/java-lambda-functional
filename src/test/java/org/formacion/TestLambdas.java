@@ -2,11 +2,7 @@ package org.formacion;
 
 import static org.junit.Assert.*;
 
-import java.util.function.BiPredicate;
-import java.util.function.IntUnaryOperator;
-import java.util.function.LongBinaryOperator;
-import java.util.function.Predicate;
-import java.util.function.UnaryOperator;
+import java.util.function.*;
 
 import org.junit.Test;
 
@@ -60,12 +56,33 @@ public class TestLambdas {
 		Persona personaNoPariente = new Persona ("nombre","otro","otro");
 		
 		// Cread una funcion que indique si el segundo apellido de una persona es null
-		
+		Predicate<Persona> personaIsSecondLastNameNull = p -> p.getApellido2() == null;
+
+		assertTrue( personaIsSecondLastNameNull.test(personaSinSegundoApellido));
+		assertFalse( personaIsSecondLastNameNull.test(personaConSegundoApellido));
+
 		// Una funcion que nos diga si dos personas son parientes: para nosotros parientes
 		// son personas con el mismo primer apellido
-		
+		BiPredicate<Persona, Persona> personasIsParent = (p1, p2) -> p1.getApellido1().equals(p2.getApellido1());
+
+		assertTrue(personasIsParent.test(personaSinSegundoApellido, personaConSegundoApellido));
+		assertFalse(personasIsParent.test(personaSinSegundoApellido, personaNoPariente));
+
 		// Una funcion que "enmascare" los datos de una persona: debe permutar los valores de sus
 		// y nombre
+
+		Consumer<Persona> mask = p -> {
+			String tmp = p.getApellido1();
+			p.setApellido1(p.getApellido2());
+			p.setApellido2(p.getNombre());
+			p.setNombre(tmp);
+		};
+
+		mask.accept(personaConSegundoApellido);
+
+		assertEquals("apellido1", personaConSegundoApellido.getNombre());
+		assertEquals("apellido2", personaConSegundoApellido.getApellido1());
+		assertEquals("nombre", personaConSegundoApellido.getApellido2());
 	}
 	
 	
