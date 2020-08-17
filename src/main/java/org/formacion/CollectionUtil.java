@@ -10,6 +10,7 @@ public class CollectionUtil {
 	 * tengan un nombre con un espacio en blanco 
 	 */
 	public void eliminaNombresConEspacios(List<Persona> original) {
+		original.removeIf( p -> p.getNombre().contains(" "));
 	}
 	
 	/**
