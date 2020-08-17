@@ -22,7 +22,9 @@ public class PersonaUtil {
      * Devuelve stream con las personas que no tiene segundo apellido
      */
     public Stream<Persona> listaSinApellido2() {
-        return null;
+        return bbdd
+                .stream()
+                .filter(p -> !p.getApellido2().isPresent());
     }
 
     /**
