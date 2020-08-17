@@ -35,7 +35,7 @@ public class TestLambdas {
 	@Test
 	public void test_funcion_2() {
 		
-		LongBinaryOperator menor = null;
+		LongBinaryOperator menor = (a, b) -> {return a > b? b: a;};
 		
 		assertEquals(-2, menor.applyAsLong(-2, 3));
 		assertEquals(5, menor.applyAsLong(10, 5));
