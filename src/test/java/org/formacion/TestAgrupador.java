@@ -27,14 +27,14 @@ public class TestAgrupador {
 	
 	/**
 	 * definid un metodo default addAll que acepte un Collection y
-	 * añada cada objeto al agrupador
+	 * aï¿½ada cada objeto al agrupador
 	 * Cuando tengais el metodo, descomentad el codigo comentado en el test
 	 */
 	@Test
 	public void test_addAll() {
 		
 		Agrupador agrupador = new AgrupadorConList();
-		// agrupador.addAll(Arrays.asList("primero","segundo"));
+		agrupador.addAll(Arrays.asList("primero","segundo"));
 		
 		Assert.assertEquals(2,agrupador.numeroElementos());
 	}
