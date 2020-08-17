@@ -32,6 +32,11 @@ public class CollectionUtil {
 	 * El metodo debe devolver "prod1:4,prod2:5," 
 	 */
 	public String aTexto (Map<String, Integer> factura) {
-		return "";
+		StringBuilder builder = new StringBuilder();
+		factura.forEach( (key, value) -> builder.append(key)
+												.append(":")
+												.append(value)
+												.append(","));
+		return builder.toString();
 	}
 }
