@@ -18,6 +18,9 @@ public class CollectionUtil {
 	 * Id con cuidado con el segundo apellido, que es optional!
 	 */
 	public void pasarAMayusculas (List<Persona> original) {
+		original.replaceAll( p -> new Persona( p.getNombre().toUpperCase(),
+				p.getApellido1().toUpperCase(),
+				p.getApellido2().map(it -> it.toUpperCase())));
 	}
 	
 	
