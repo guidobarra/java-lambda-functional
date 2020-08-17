@@ -10,6 +10,7 @@ public class Vivienda {
 
 	public Vivienda(Persona propietario, String nombre) {
 		this.nombre = nombre;
+		this.propietario = Optional.ofNullable(propietario);
 	}
 	
 	public Vivienda(String nombre) {
