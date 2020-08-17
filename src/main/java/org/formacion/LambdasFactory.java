@@ -23,9 +23,9 @@ package org.formacion;
 public class LambdasFactory {
 
 	
-	/** Devuelve una implemtacion de constante que siempre devuelve 5 */
+	/** Devuelve una implemtacion de constante que siempre devuelve 5  int valor()*/
 	public Constante devuelve5() {
-		return null;
+		return () -> 5;
 	}
 
 	/** Devuelve una implementacion de Operador con el metodo de suma de dos enteros */
