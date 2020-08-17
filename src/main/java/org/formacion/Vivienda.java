@@ -27,7 +27,7 @@ public class Vivienda {
 	}
 	
 	public Optional<String> nombrePropietario() {
-		return null;
+		return this.propietario.map(p -> p.getNombre());
 	}
 	
 	
