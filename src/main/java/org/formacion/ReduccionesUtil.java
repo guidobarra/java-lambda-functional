@@ -3,6 +3,7 @@ package org.formacion;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Para las soluciones de estos ejercicios utiliza streams, las 
@@ -22,7 +23,11 @@ public class ReduccionesUtil {
 	 */
 	public Collection<String> obtenSinNulosYMayusculas(List<String> original) {
 		
-		return null;
+		return original
+				.stream()
+				.filter(s -> s != null)
+				.map(s -> s.toUpperCase())
+				.collect(Collectors.toList());
 	}
 
 	/**
