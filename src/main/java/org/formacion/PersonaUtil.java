@@ -29,7 +29,9 @@ public class PersonaUtil {
      * Devuelve stream con los nombres de todas las personas
      */
     public Stream<String> listaNombres() {
-        return null;
+        return bbdd
+                .stream()
+                .map(p -> p.getNombre());
     }
 
     /**
