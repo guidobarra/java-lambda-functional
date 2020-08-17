@@ -97,12 +97,21 @@ public class TestLambdas {
 		 * Como parametro al metodo add debereis pasar una expresion que produzca el tipo de funcion que 
 		 * hayais decidido que usa la clase Validador
 		 */
-		//Validador<Persona> validador = new Validador<Persona>();
+		Validador<Persona> validador = new Validador<Persona>();
 		
-		//validador.add(/* pasar un predicado que mire si el primer apellido es null */ );
-		
-		//assertTrue(validador.valida(new Persona("nombre","ape1","ape2")));
-		//assertFalse(validador.valida(new Persona("nombre",null,"ape2")));
+		/* pasar un predicado que mire si el primer apellido es null */
+		validador.add(p -> p.getApellido1() != null);
+
+		assertTrue(validador.valida(new Persona("nombre","ape1","ape2")));
+		assertFalse(validador.valida(new Persona("nombre",null,"ape2")));
+
+		/* pasar un predicado que mire si el primer segundo es null */
+		validador.add(p -> p.getApellido2() != null);
+
+		assertTrue(validador.valida(new Persona("nombre","ape1","ape2")));
+		assertFalse(validador.valida(new Persona("nombre",null,null)));
+		assertFalse(validador.valida(new Persona("nombre","ape1",null)));
+		assertFalse(validador.valida(new Persona("nombre",null,"ape2")));
 
 	}
 	
