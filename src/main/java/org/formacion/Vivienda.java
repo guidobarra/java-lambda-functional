@@ -14,6 +14,7 @@ public class Vivienda {
 	
 	public Vivienda(String nombre) {
 		this.nombre = nombre;
+		this.propietario = Optional.empty();
 	}
 
 	public Optional<Persona> getPropietario() {
