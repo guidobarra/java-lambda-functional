@@ -41,7 +41,10 @@ public class PersonaUtil {
      * pista: metodo de String compareToIgnoreCase
      */
     public Stream<String> listaApellido1Ordenada() {
-        return null;
+        return bbdd
+                .stream()
+                .map(p -> p.getApellido1())
+                .sorted( (p1, p2 ) -> p1.compareToIgnoreCase(p2));
     }
 
 }
