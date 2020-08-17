@@ -29,8 +29,9 @@ public class LambdasFactory {
 	}
 
 	/** Devuelve una implementacion de Operador con el metodo de suma de dos enteros */
+	// 	int opera ( int a, int b);
 	public Operador obtenSumador() {
-		return null;
+		return (a, b) -> a + b ;
 	}
 	
 	/** 
