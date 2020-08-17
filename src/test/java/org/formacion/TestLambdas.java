@@ -20,7 +20,7 @@ public class TestLambdas {
 	@Test
 	public void test_function() {
 		
-		IntUnaryOperator cuadrado = null;
+		IntUnaryOperator cuadrado = num -> num * num;
 		
 		assertEquals(0, cuadrado.applyAsInt(0));
 		assertEquals(1, cuadrado.applyAsInt(1));
