@@ -44,13 +44,7 @@ public class ReduccionesUtil {
 		 * y en la posicion 1 el recuento de impares
 		 */
 		int[] acumular = {0,0};
-		numeros.stream().forEach( num -> {
-			if (num % 2 == 0) {
-				acumular[0]++;
-			} else {
-				acumular[1]++;
-			}
-		});
+		numeros.stream().forEach( num -> acumular[num % 2] += 1);
 		
 		return acumular;
 		
